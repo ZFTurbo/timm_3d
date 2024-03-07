@@ -29,8 +29,8 @@ res = m(torch.randn(2, 3, 128, 128, 128))
 print(f'Output shape: {res.shape}') 
 ```
 
-**Note 1**: you can use pretrained weights. They will be converted on the fly from 2D to 3D variant.
-**Note 2**: More examples can be found [here](test.py) 
+* **Note 1**: you can use pretrained weights. They will be converted on the fly from 2D to 3D variant.
+* **Note 2**: More examples can be found [here](test.py) 
 
 ## Models
 
