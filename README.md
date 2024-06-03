@@ -6,7 +6,7 @@ This library is based on famous [PyTorch Image Models (timm)](https://github.com
 
 ## Installation
 
-* Type 1: `pip install timm_3d`
+* Type 1: `pip install timm-3d`
 * Type 2: Copy `timm_3d` folder from this repository in your project folder.
 
 ## Quick start
