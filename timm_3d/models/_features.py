@@ -258,7 +258,7 @@ class FeatureListNet(FeatureDictNet):
             self,
             model: nn.Module,
             out_indices: Tuple[int, ...] = (0, 1, 2, 3, 4),
-            output_fmt: str = 'NCHW',
+            output_fmt: str = 'NCHWD',
             feature_concat: bool = False,
             flatten_sequential: bool = False,
     ):
