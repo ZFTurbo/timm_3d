@@ -649,8 +649,8 @@ class ConvNeXtBlock(nn.Module):
 def window_partition(x, window_size: List[int]):
     B, H, W, D, C = x.shape
     _assert(H % window_size[0] == 0, f'height ({H}) must be divisible by window ({window_size[0]})')
-    _assert(W % window_size[1] == 0, '')
-    _assert(D % window_size[2] == 0, '')
+    _assert(W % window_size[1] == 0, f'height ({W}) must be divisible by window ({window_size[1]})')
+    _assert(D % window_size[2] == 0, f'height ({D}) must be divisible by window ({window_size[2]})')
     x = x.view(B, H // window_size[0], window_size[0], W // window_size[1], window_size[1], D // window_size[2], window_size[2], C)
     windows = x.permute(0, 1, 3, 5, 2, 4, 6, 7).contiguous().view(-1, window_size[0], window_size[1], window_size[2], C)
     return windows
