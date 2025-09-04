@@ -34,11 +34,11 @@ def pad_same_arg(
         stride: List[int],
         dilation: List[int] = (1, 1, 1),
 ) -> List[int]:
-    ih, iw, id = input_size
-    kh, kw, kd = kernel_size
-    pad_h = get_same_padding(ih, kh, stride[0], dilation[0])
-    pad_w = get_same_padding(iw, kw, stride[1], dilation[1])
-    pad_d = get_same_padding(id, kd, stride[2], dilation[2])
+    id, ih, iw = input_size
+    kd, kh, kw = kernel_size
+    pad_d = get_same_padding(id, kd, stride[0], dilation[0])
+    pad_h = get_same_padding(ih, kh, stride[1], dilation[1])
+    pad_w = get_same_padding(iw, kw, stride[2], dilation[2])
     return [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2, pad_d // 2, pad_d - pad_d // 2]
 
 
@@ -50,10 +50,10 @@ def pad_same(
         dilation: List[int] = (1, 1, 1),
         value: float = 0,
 ):
-    ih, iw, id = x.size()[-3:]
-    pad_h = get_same_padding(ih, kernel_size[0], stride[0], dilation[0])
-    pad_w = get_same_padding(iw, kernel_size[1], stride[1], dilation[1])
-    pad_d = get_same_padding(id, kernel_size[2], stride[2], dilation[2])
+    id, ih, iw = x.size()[-3:]
+    pad_d = get_same_padding(id, kernel_size[0], stride[0], dilation[0])
+    pad_h = get_same_padding(ih, kernel_size[1], stride[1], dilation[1])
+    pad_w = get_same_padding(iw, kernel_size[2], stride[2], dilation[2])
     x = F.pad(x, (pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2, pad_d // 2, pad_d - pad_d // 2), value=value)
     return x
 
